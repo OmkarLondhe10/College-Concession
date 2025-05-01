@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Concession</title>
+    <link rel="stylesheet" href="/static/css/panel.css">
+</head>
+<body class="container" id="container">
+
+<div class="main">
+
+    <form method="post">
+        {% csrf_token %}
+        <center>
+            <div class="led">
+                <h2>Admin Panel - Concession Forms</h2>
+            </div>
+        </center>
+
+        <div class="search">
+            <input type="text" name="query" id="query" placeholder="Search by Name or Email" onkeyup="debouncedSearch()">
+            <div class="clear">
+                <input type="text" class="delete" placeholder="Enter ID to delete" name="id">
+                <button class="button" type="submit" name="action" value="delete">Delete</button>
+            </div>
+        </div>
+    </form>
+
+    <br>
+
+    <table border="1" class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Year</th>
+                <th>Branch</th>
+                <th>Start Destination</th>
+                <th>End Destination</th>
+                <th>Submit Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for n in form %}
+            <tr>
+                <td>{{ n.pk }}</td>
+                <td>{{ n.name }}</td>
+                <td>{{ n.email }}</td>
+                <td>{{ n.year }}</td>
+                <td>{{ n.branch }}</td>
+                <td>{{ n.start }}</td>
+                <td>{{ n.end }}</td>
+                <td>{{ n.submit_time }}</td>
+                <td>
+                    <button class="details" onclick="showDetails('{{ n.id }}')">Show</button>
+                </td>
+            </tr>
+
+            <!-- Popup for each student's details -->
+            <div class="popup" id="details_{{ n.id }}" onclick="closePopup()">
+                <div class="popup-content">
+                    <h3>Concession Details</h3>
+                    <p><strong>Name:</strong> {{ n.input_name }}</p>
+                    <p><strong>Email:</strong> {{ n.input_email }}</p>
+                    <p><strong>Year:</strong> {{ n.input_year }}</p>
+                    <p><strong>Branch:</strong> {{ n.input_branch }}</p>
+                    <p><strong>Start Destination:</strong> {{ n.input_start }}</p>
+                    <p><strong>End Destination:</strong> {{ n.input_end }}</p>
+                    <p><strong>Submitted On:</strong> {{ n.submit_time }}</p>
+                </div>
+            </div>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+function showDetails(id) {
+    document.getElementById('details_' + id).style.display = 'block';
+}
+
+function closePopup() {
+    var popups = document.getElementsByClassName('popup');
+    for (var i = 0; i < popups.length; i++) {
+        popups[i].style.display = 'none';
+    }
+}
+
+// Debounce function to avoid spamming search
+let debounceTimer;
+function debouncedSearch() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function() {
+        document.forms[0].submit(); // submit search form
+    }, 500);
+}
+</script>
+
+</body>
+</html>

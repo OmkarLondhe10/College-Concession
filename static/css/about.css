@@ -1,0 +1,294 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+header {
+  background-color: #2e3a46;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+}
+
+.logo img {
+  max-width: 120px;
+}
+
+nav ul.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav ul.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+nav ul.nav-links a:hover {
+  color: #61dafb;
+}
+
+/* About Section */
+.about-section {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.about-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #2e3a46;
+}
+
+.about-section p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: #5a5a5a;
+}
+
+/* Campus Gallery Section */
+.campus-gallery {
+  padding: 40px 0;
+  background-color: #ffffff;
+  text-align: center;
+  position: relative; /* for containing the glow effect */
+}
+
+.campus-gallery h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #2e3a46;
+}
+
+.swiper-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Add Glow and Sparkle Animation */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden; /* ensure the glow effect does not overflow */
+}
+
+.swiper-slide img {
+  width: 100%; 
+  height: auto;
+  border-radius: 10px;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Sparkle effect */
+.swiper-slide img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.swiper-slide:hover img::before {
+  opacity: 1;
+}
+
+.swiper-slide:hover img {
+  transform: scale(1.05); /* slight zoom-in on hover */
+  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.8);
+  animation: sparkle-gallery 2s infinite alternate;
+}
+
+/* Keyframes for sparkle effect */
+@keyframes sparkle-gallery {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5),
+                0 0 10px rgba(255, 105, 180, 0.6),
+                0 0 15px rgba(255, 105, 180, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.7),
+                0 0 25px rgba(255, 105, 180, 0.8),
+                0 0 30px rgba(255, 105, 180, 0.9);
+  }
+}
+
+/* Next/Prev Button Color */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #61dafb;
+}
+
+/* Faculty Spotlight Section */
+.faculty-spotlight {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+  text-align: center;
+  position: relative; /* to contain the glow effect */
+}
+
+.faculty-spotlight h2 {
+  font-size: 2rem;
+  color: #2e3a46;
+  margin-bottom: 30px;
+}
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Faculty Member Glow Effect */
+.faculty-member {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden; /* To ensure glow does not exceed the boundary */
+}
+
+.faculty-member::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.faculty-member:hover::before {
+  opacity: 1;
+}
+
+/* Glow and Sparkle Animation */
+.faculty-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.8);
+}
+
+/* Faculty Image */
+.faculty-img {
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+@keyframes sparkle {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5),
+                0 0 10px rgba(255, 105, 180, 0.6),
+                0 0 15px rgba(255, 105, 180, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.7),
+                0 0 25px rgba(255, 105, 180, 0.8),
+                0 0 30px rgba(255, 105, 180, 0.9);
+  }
+}
+
+/* Faculty Info */
+.faculty-info h3 {
+  font-size: 1.5rem;
+  color: #2e3a46;
+}
+
+.faculty-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #5a5a5a;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #61dafb;
+}
+
+/* Faculty Courses Section */
+.faculty-courses {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.department {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.department-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.department-info {
+  flex-grow: 1;
+}
+
+.department-info p {
+  margin: 0;
+  font-size: 1rem;
+  color: #5a5a5a;
+}
+
+.department:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.department::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 0, 102, 0.5);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.department:hover::before {
+  opacity: 1;
+}

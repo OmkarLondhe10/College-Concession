@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concession - Engineering College</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="College Logo">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="concession.html">Concession</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="concession" class="form-section">
+            <h1>Concession Form</h1>
+            <form id="concession-form" method="POST" action="{% url 'input' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <select id="year" name="year" required>
+                        <option value="">Select Year</option>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">4th Year</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="branch">Branch:</label>
+                    <select id="branch" name="branch" required>
+                        <option value="">Select Branch</option>
+                        <option value="Aiml">AIML</option>
+                        <option value="me">Mechanical Engineering</option>
+                        <option value="IoT">IoT</option>
+                        <option value="ee">Electrical Engineering</option>
+                        <option value="cc">Computer Engineering</option>
+                        <option value="ce">Civil Engineering</option>
+                        <option value="aids">AIDS</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                    <label for="start">Start Destination:</label>
+                    <select id="start" name="start" required>
+                        <option value="">Select Start Destination</option>
+                        <option value="Ambivli">Ambivli</option>
+                        <option value="Ambernath">Ambernath</option>
+                        <option value="Asangaon">Asangaon</option>
+                        <option value="Badlapur">Badlapur</option>
+                        <option value="Bhandup">Bhandup</option>
+                        <option value="CSMT">CSMT</option>
+                        <option value="Dadar">Dadar</option>
+                        <option value="Diva">Diva</option>
+                        <option value="Dombivli">Dombivli</option>
+                        <option value="Ghakopar">Ghakopar</option>
+                        <option value="Kalwa">Kalwa</option>
+                        <option value="Kalyan">Kalyan</option>
+                        <option value="Karjat">Karjat</option>
+                        <option value="Kasara">Kasara</option>
+                        <option value="Khanjurmarg">Khanjurmarg</option>
+                        <option value="Khopoli">Khopoli</option>
+                        <option value="Kopar">Kopar</option>
+                        <option value="Kurla">Kurla</option>
+                        <option value="Mulund">Mulund</option>
+                        <option value="Mumbra">Mumbra</option>
+                        <option value="Nahur">Nahur</option>
+                        <option value="Sion">Sion</option>
+                        <option value="Thakurli">Thakurli</option>
+                        <option value="Thane">Thane</option>
+                        <option value="Titwala">Titwala</option>
+                        <option value="Ulhasnagar">Ulhasnagar</option>
+                        <option value="VidhyaVihar">VidhyaVihar</option>
+                        <option value="Vikhroli">Vikhroli</option>
+                    </select>
+                </div>
+             
+                <div class="form-group">
+                    <label for="end">End Destination:</label>
+                    <select id="end" name="end" required>
+                        <option value="">Select End Destination</option>
+                        <option value="Ghansoli">Ghansoli</option>
+                    </select>
+                </div>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+
+</body>
+</html>
