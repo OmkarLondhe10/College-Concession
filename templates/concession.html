@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concession - Engineering College</title>
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="College Logo">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="concession.html">Concession</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="concession" class="form-section">
+            <h1>Concession Form</h1>
+            <form id="concession.html" method="POST" action="{% url 'saveConcession' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Student Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">College Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="roll">Student Roll no. :</label>
+                    <input type="roll" id="roll" name="roll" min="1" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <select id="year" name="year" required>
+                        <option value="">Select Year</option>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">4th Year</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="branch">Branch:</label>
+                    <select id="branch" name="branch" required>
+                        <option value="">Select Branch</option>
+                        <option value="Aiml">AIML</option>
+                        <option value="me">Mechanical Engineering</option>
+                        <option value="IoT">IoT</option>
+                        <option value="ee">Electrical Engineering</option>
+                        <option value="cc">Computer Engineering</option>
+                        <option value="ce">Civil Engineering</option>
+                        <option value="aids">AIDS</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                    <label for="start">Start Destination:</label>
+                    <select id="start" name="start" required>
+                        <option value="">Select Start Destination</option>
+                        <option value="Ambivli">Ambivli</option>
+                        <option value="Ambernath">Ambernath</option>
+                        <option value="Asangaon">Asangaon</option>
+                        <option value="Badlapur">Badlapur</option>
+                        <option value="Bhandup">Bhandup</option>
+                        <option value="CSMT">CSMT</option>
+                        <option value="Dadar">Dadar</option>
+                        <option value="Diva">Diva</option>
+                        <option value="Dombivli">Dombivli</option>
+                        <option value="Ghakopar">Ghakopar</option>
+                        <option value="Kalwa">Kalwa</option>
+                        <option value="Kalyan">Kalyan</option>
+                        <option value="Karjat">Karjat</option>
+                        <option value="Kasara">Kasara</option>
+                        <option value="Khanjurmarg">Khanjurmarg</option>
+                        <option value="Khopoli">Khopoli</option>
+                        <option value="Kopar">Kopar</option>
+                        <option value="Kurla">Kurla</option>
+                        <option value="Mulund">Mulund</option>
+                        <option value="Mumbra">Mumbra</option>
+                        <option value="Nahur">Nahur</option>
+                        <option value="Sion">Sion</option>
+                        <option value="Thakurli">Thakurli</option>
+                        <option value="Thane">Thane</option>
+                        <option value="Titwala">Titwala</option>
+                        <option value="Ulhasnagar">Ulhasnagar</option>
+                        <option value="VidhyaVihar">VidhyaVihar</option>
+                        <option value="Vikhroli">Vikhroli</option>
+                    </select>
+                </div>
+             
+                <div class="form-group">
+                    <label for="end">End Destination:</label>
+                    <select id="end" name="end" required>
+                        <option value="">Select End Destination</option>
+                        <option value="Ghansoli">Ghansoli</option>
+                    </select>
+                </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="period">Select period for concession</label>
+                    <select id="period" name="period" required>
+                        <option value="">Select period for concession</option>
+                        <option value="Monthly">Monthly</option>
+                        <option value="Quaterly">Quaterly</option>
+                    </select>
+                </div>
+            
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #2e3a46;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 155px;
+}
+
+.logo img {
+    max-width: 150px;
+    height: 120px;
+}
+
+.logo img {
+    max-height: 60px;
+}
+
+nav ul.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul.nav-links li a {
+    color: #f9f9f9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul.nav-links li a:hover {
+    color: #93c5fd;
+}
+
+/* Main Content */
+main {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Form Section */
+.form-section {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+.form-section h1 {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #f9fafb;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    outline: none;
+}
+
+/* Button */
+button[type="submit"] {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto 0;
+}
+
+button[type="submit"]:hover {
+    background-color: #2563eb;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+}
+
+    </style>
+
+</body>
+</html>
