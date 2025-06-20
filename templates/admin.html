@@ -46,10 +46,16 @@
         <td>
         <a href="{% url 'delete_concession' e.id %}" class="btn btn-danger btn-sm"> DELETE </a>
 
-        <button class="btn btn-dark btn-sm"> PRINT </button>
+        <a href="{% url 'print_form' e.id %}" target="_blank" class="btn btn-sm btn-primary">Print</a>
+
+
         </td>
         </tr>
+
         {% endfor %}
+        
+        
+        <a href="{% url 'logout' %}" class="btn btn-warning btn-sm float-end">Logout</a>
                 </tbody>
               </table>
             </div>
