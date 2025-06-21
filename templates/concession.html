@@ -28,6 +28,7 @@
         <section id="concession" class="form-section">
             <h1>Concession Form</h1>
             <form id="concession.html" method="POST" action="{% url 'saveConcession' %}">
+                
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="name">Student Name:</label>
@@ -41,7 +42,7 @@
 
                 <div class="form-group">
                     <label for="roll">Student Roll no. :</label>
-                    <input type="roll" id="roll" name="roll" min="1" required>
+                    <input type="number" id="roll" name="roll" min="1" required>
                 </div>
 
 

@@ -21,10 +21,6 @@ def adminpage(request):
     data = Concession.objects.all()
     return render(request, 'admin.html', {'data': data})
 
-
-def admin_view(request):
-    return render(request, 'admin.html')
-
 def loginpage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -32,17 +28,15 @@ def loginpage(request):
 
         if username == 'admin' and password == 'admin@123':
             request.session['is_admin_logged_in'] = True
-            return redirect('adminpage')  # 🔁 redirect by name
+            return redirect('adminpage') 
         else:
             return render(request, 'login.html', {'error': 'Invalid credentials'})
 
     return render(request, 'login.html')
 
 def logout_view(request):
-    request.session.flush()  # 🔁 Clears all session data
+    request.session.flush() 
     return redirect('login')
-
-
 
 def saveContact(request):
     if request.method == 'POST':

@@ -3,55 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Printable Concession Form</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-            padding: 40px;
-            background: white;
-        }
-
-        .form-container {
-            width: 800px;
-            margin: auto;
-            border: 1px solid #000;
-            padding: 30px;
-        }
-
-        h2, h4 {
-            text-align: center;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 25px;
-        }
-
-        td {
-            padding: 10px;
-            vertical-align: top;
-        }
-
-        .print-button {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .print-button button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        @media print {
-            .print-button {
-                display: none;
-            }
-            body {
-                margin: 0;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="form-container">
@@ -104,5 +55,57 @@
     <div class="print-button">
         <button onclick="window.print()">🖨️ Print Form</button>
     </div>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            padding: 40px;
+            background: white;
+        }
+
+        .form-container {
+            width: 800px;
+            margin: auto;
+            border: 1px solid #000;
+            padding: 30px;
+        }
+
+        h2, h4 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        .print-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .print-button button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+            body {
+                margin: 0;
+            }
+        }
+    </style>
+
+    
 </body>
 </html>
